@@ -6,14 +6,14 @@ exports.time = function(req, res){
   res.send(time);
 };
 
+var count = 0;
 exports.info = function(req, res){
-  var name = 
+  count ++;
+  var data = 
   {
-  	"Server's name : Peggy." :;
-  }
-  var timee = 
-  {
-  	"Time" : Date().toLocaleString(),
-  }
-  res.send(name,timee);
+  	"Server's name " : "Peggy's server.",
+  	"Now Time " : Date().toLocaleString(),
+    "API calls " : count
+  };
+  res.send(data);
 };

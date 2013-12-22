@@ -37,7 +37,7 @@ app.get('/hello', hello.index);
 app.get('/peggy', hello.peggy);
 
 //API REST
-app.get('/1/time', api.info);
+app.get('/1/info', api.info);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
