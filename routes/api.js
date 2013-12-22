@@ -34,7 +34,7 @@ exports.update = function(req, res){
 
      	entry.name = req.query.name;
      	entry.tel = req.query.tel;
-     };
+     }
   });
   res.end();
 };

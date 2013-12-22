@@ -34,7 +34,7 @@ app.get('/peggy', hello.peggy); //編輯筆記
 
 //Pratice Rest
 app.get('/1/user/:nickname', api.read);
-app.post('/1/user/nick:name',api.creat);
+app.post('/1/user/:nickname',api.creat);
 app.put('/1/user/:nickname',api.update);
 app.delete('/1/user/:nickname',api.delete);
 
