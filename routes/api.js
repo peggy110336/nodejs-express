@@ -11,9 +11,9 @@ exports.info = function(req, res){
   count ++;
   var data = 
   {
-  	"Server's name " : "Peggy's server.",
-  	"Now Time " : Date().toLocaleString(),
-    "API calls " : count
+  	"server": "Peggy's Server",
+    "time": new Date().toISOString(),
+    "count": count
   };
   res.send(data);
 };
