@@ -1,11 +1,5 @@
 var vcard = [];
 
-exports.read = function(req, res){
-  console.log(">>>>>>>Read.");
-  res.send(vcard);
-  res.end();
-};
-
 exports.creat = function(req, res){
   console.log(">>>>>>>Creat.");
   var person = 
@@ -22,6 +16,12 @@ exports.creat = function(req, res){
   vcard.push(person);
   res.end();
   
+};
+
+exports.read = function(req, res){
+  console.log(">>>>>>>Read.");
+  res.send(vcard);
+  res.end();
 };
 
 exports.update = function(req, res){
