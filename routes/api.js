@@ -11,6 +11,7 @@ exports.read = function(req, res){
   person.tel = req.query.tel;
   person.name = req.query.name;
   vcard.push(person);
+  console.log(vcard);
   res.end();
 };
 exports.creat = function(req, res){
