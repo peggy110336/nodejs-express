@@ -33,10 +33,10 @@ if ('development' == app.get('env')) {
 app.get('/peggy', hello.peggy); //編輯筆記
 
 //Pratice Rest
-app.get('/1/user/:name', api.read);
-app.post('/1/user/:name',api.creat);
-app.put('/1/user/:name',api.update);
-app.delete('/1/user/:name',api.delete);
+app.get('/1/user/:nickname', api.read);
+app.post('/1/user/nick:name',api.creat);
+app.put('/1/user/:nickname',api.update);
+app.delete('/1/user/:nickname',api.delete);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
