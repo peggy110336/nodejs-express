@@ -30,14 +30,13 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', routes.index);
-app.get('/users', user.list);
-app.get('/hello', hello.index);
+app.get('/peggy', hello.peggy); //編輯筆記
 
-app.get('/peggy', hello.peggy);
-
-//API REST
-app.get('/1/info', api.info);
+//Pratice Rest
+app.get('/1/user/:name', api.read);
+app.post('/1/user/:name',api.creat);
+app.put('/1/user/:name',api.update);
+app.delete('/1/user/:name',api.delete);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
