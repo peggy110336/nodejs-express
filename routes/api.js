@@ -1,26 +1,25 @@
 var vcard = [];
 
 exports.read = function(req, res){
-	var person = 
+  console.log(">>>>>>>Read.");
+  res.send(vcard);
+  res.end();
+};
+
+exports.creat = function(req, res){
+  console.log(">>>>>>>Creat.");
+  var person = 
 	{
 		nickname : "",
 		name : "",
 		tel : ""
 	};
 
-  console.log(">>>>>>>Read.");
   person.nickname = req.params.nickname;
   person.tel = req.query.tel;
   person.name = req.query.name;
 
   vcard.push(person);
- 
-  res.end();
-};
-
-exports.creat = function(req, res){
-  console.log(">>>>>>>Creat.");
-  res.send(vcard);
   res.end();
   
 };
