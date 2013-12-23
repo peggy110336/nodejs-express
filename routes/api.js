@@ -41,5 +41,16 @@ exports.update = function(req, res){
 
 exports.delete = function(req, res){
   console.log(">>>>>>>Delete.");
+  
+  var nickname = req.params.nickname;
+  var newvcard = [];
+  vcard.forEach(function (entry)  {
+   if (entry.nickname !== nickname ) {
+        newvcard.push(entry);
+    }
+  });
+
+vcard = newvcard;
+
   res.end();
 };
