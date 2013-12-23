@@ -62,9 +62,7 @@ vcard = newvcard;
 };
 
 exports.upload = function(req, res) {
- 
-     var fs = require('fs');
-     var path = require('path');
+  
      var type = req.params.type;   // 'photo' or 'voice'
      var ext;
  
