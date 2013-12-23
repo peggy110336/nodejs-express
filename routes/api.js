@@ -1,4 +1,10 @@
-var vcard = [];
+var vcard;
+var fs = require('fs');
+var path = require('path');
+
+fs.readFile(path.join(__dirname, '/db.json'), function(err, data) {
+        vcard = JSON.parse(data);
+});
 
 exports.creat = function(req, res){
   console.log(">>>>>>>Creat.");
