@@ -14,9 +14,18 @@
 		    <h2>${name}</h2>
 		    <img class='img-circle' src='upload/${nickname}.jpg' data-toggle='photo' width='96' height='96' data-nickname="${nickname}" />
 	        <span class="label label-warning">${tel}</span>
+	        <div>
+            <audio controls>
+              <source src="uploads/${nickname}.mp3" type="audio/mpeg">
+            </audio>
+          </div>
 	        <div class="hide-admin" data-admin='${nickname}'>
+	          <div class="row">
 		        <p><input type='file' class="btn btn-large btn-info" name='filename' id="${nickname}">
 	            <p><button class="btn btn-large btn-info" data-toggle='upload-photo' data-nickname="${nickname}">Upload Photo</button></p>
+	            <p><input type='file' class="btn btn-large btn-success" name='filename' id="voice-${nickname}">
+                <p><button class="btn btn-large btn-success" data-toggle='upload-voice' data-nickname="${nickname}">Upload Voice</button></p>
+	          </div>
 	        </div>
 	      </div>
 	    </div>
@@ -64,22 +73,40 @@
             		var data = new FormData();
             		data.append('file', $('#' + nickname)[0].files[0]);
 
-            $.ajax({
-               url: '/1/user/' + nickname + '/photo',
-               data: data,
-               cache: false,
-               contentType: false,
-               processData: false,
-               type: 'POST',
-               success: function() {
-               	$("img[data-img='" + nickname + "'").prop('src', '/upload/' + nickname + '.jpg');
-                console.log('upload success');
-               }
-            });
-          });          
-        }
+	            $.ajax({
+	               url: '/1/user/' + nickname + '/photo',
+	               data: data,
+	               cache: false,
+	               contentType: false,
+	               processData: false,
+	               type: 'POST',
+	               success: function() {
+	               	$("img[data-nickname='" + nickname + "'").prop('src', '/upload/' + nickname + '.jpg');
+	                console.log('upload success');
+	               }
+	            });
+	          });
+
+	           $("button[data-toggle='upload-voice']").on('click', function() {
+	            var nickname = $(this).data('nickname');
+	            var data = new FormData();
+	            data.append('file', $('#voice-' + nickname)[0].files[0]);
+
+	           $.ajax({
+	              url: '/1/user/' + nickname + '/voice',
+	              data: data,
+	              cache: false,
+	              contentType: false,
+	              processData: false,
+	              type: 'POST',
+	              success: function() {
+	               console.log('voice upload success');
+	              }
+	            });
+	          });           
+            }
+         });
       });
-    });
     </script>
   </body>
 </html>

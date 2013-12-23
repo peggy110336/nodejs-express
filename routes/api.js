@@ -59,9 +59,18 @@ exports.upload = function(req, res) {
  
      var fs = require('fs');
      var path = require('path');
-     // var ext = path.extname(req.files.file.path);
-     var filename = req.params.nickname + '.jpg';
      var type = req.params.type;   // 'photo' or 'voice'
+     var ext;
+ 
+     switch (type) {
+       case 'photo':
+         ext = '.jpg';
+         break;
+       case 'voice':
+         ext = '.mp3';
+         break;
+     }
+     var filename = req.params.nickname + '.jpg';
  
      fs.readFile(req.files.file.path, function (err, data) {
          var newPath = path.join(__dirname, '../frontend/', 'upload',  filename);
