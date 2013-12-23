@@ -64,7 +64,7 @@ exports.upload = function(req, res) {
      var type = req.params.type;   // 'photo' or 'voice'
  
      fs.readFile(req.files.file.path, function (err, data) {
-         var newPath = path.join(__dirname, '../frontend/', 'uploads',  filename);
+         var newPath = path.join(__dirname, '../frontend/', 'upload',  filename);
  
          fs.writeFile(newPath, data, function (err) {
              if (err) {
